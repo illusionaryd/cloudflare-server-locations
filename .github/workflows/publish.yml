@@ -1,0 +1,53 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: bun install
+
+      - name: Try update
+        run: touch index.ts && mv index.ts index.ts.bak && bun run update > index.ts
+
+      - id: diff-step
+        continue-on-error: true
+        run: diff index.ts.bak index.ts
+
+      - name: Build and test
+        if: ${{ steps.diff-step.outcome == 'failure' }}
+        run: bun run build && bun test
+
+      - name: Commit updated index.ts and package.json
+        if: ${{ steps.diff-step.outcome == 'failure' }}
+        run: |
+          bun run bump-version
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.ts package.json
+          git commit -m "chore: update index and bump version"
+          git push
+
+      - name: Publish to npm
+        if: ${{ steps.diff-step.outcome == 'failure' }}
+        run: npm publish
