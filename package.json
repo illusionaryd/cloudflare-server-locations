@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "cloudflare"
   ],
@@ -12,7 +12,7 @@
     "cheerio": "^1.1.2"
   },
   "repository": {
-    "url": "https://github.com/illusionaryd/cloudflare-server-locations"
+    "url": "https://github.com/illusionaries/cloudflare-server-locations"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
