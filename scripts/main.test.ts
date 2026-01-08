@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { CloudflareServerLocations } from '../dist'
+import { CloudflareServerLocations } from '../dist/index.js'
 
 describe('common known locations', () => {
     test('LAX', () => {

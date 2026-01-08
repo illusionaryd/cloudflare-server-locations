@@ -30,6 +30,6 @@
   "scripts": {
     "update": "bun ./scripts/update.ts",
     "bump-version": "bun ./scripts/bump-version.ts",
-    "build": "tsc --declaration --outDir dist index.ts"
+    "build": "tsc"
   }
 }
