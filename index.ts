@@ -128,6 +128,7 @@ export const CloudflareServerLocations = {
   "JRG": "Sambalpur, India",
   "AVA": "Anshun, China",
   "NQZ": "Astana, Kazakhstan",
+  "BDQ": "Jamnagar, India",
   "AMS": "Amsterdam, Netherlands",
   "ATH": "Athens, Greece",
   "BCN": "Barcelona, Spain",
