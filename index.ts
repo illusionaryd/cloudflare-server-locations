@@ -34,6 +34,7 @@ export const CloudflareServerLocations = {
   "ADD": "Addis Ababa, Ethiopia",
   "CZL": "Constantine, Algeria",
   "DLA": "Douala, Cameroon",
+  "LLW": "Lilongwe, Malawi",
   "AMD": "Ahmedabad, India",
   "ALA": "Almaty, Kazakhstan",
   "BLR": "Bangalore, India",
