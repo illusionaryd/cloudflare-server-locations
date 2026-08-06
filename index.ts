@@ -104,7 +104,6 @@ export const CloudflareServerLocations = {
   "TYN": "Yangquan, China",
   "CSX": "Changsha, China",
   "DLC": "Dalian, China",
-  "BHY": "Beihai, China",
   "CKG": "Chongqing, China",
   "XFN": "Xiangyang, China",
   "DAD": "Da Nang, Vietnam",
